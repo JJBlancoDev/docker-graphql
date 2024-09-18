@@ -22,9 +22,11 @@ jobs:
       env: 
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        GITHUB_TOKEN: ${{ secrets.MI_GITHUB_TOKEN }}
       run:  
         echo "Iniciando login"
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        git config --global user.email "jajoblama500@gmail.com"
+        git config --global user.name $DOCKER_USER
         echo "Fin del login"
 
     - name: Build docker image
